@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container py-3">
         <strong>Found {{ counter }} characters</strong>
     </div>
 </template>
@@ -13,5 +13,6 @@ export default {
 <style lang="scss" scoped>
 .container {
     background-color: #212529;
+    color: white;
 }
 </style>
