@@ -1,12 +1,19 @@
 <template>
     <div class="container py-3">
-        <strong>Found {{ counter }} characters</strong>
+        <strong>Found {{ store.count }} characters</strong>
     </div>
 </template>
 
 <script>
+import { store } from '../assets/data/store'
 export default {
-    name: 'CounterCharComp'
+    name: 'CounterCharComp',
+    data() {
+        return {
+            store,
+
+        }
+    },
 }
 </script>
 
