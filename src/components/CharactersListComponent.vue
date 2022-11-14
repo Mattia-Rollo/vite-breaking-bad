@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div v-if="check">
+        <div class="bg-loading" v-if="check">
             <div class="ring">Loading
                 <span></span>
             </div>
@@ -12,6 +12,7 @@
                     <img :src="item.img" alt="" class="pb-3">
                     <div class="card-body">
                         <h4>{{ item.name }}</h4>
+                        <div class="text-center position-relative ">{{ item.nickname }}</div>
                     </div>
                 </div>
             </div>
@@ -22,11 +23,13 @@
 <script>
 
 import axios from 'axios';
+import { store } from '../assets/data/store'
 
 export default {
     name: 'CharactersList',
     data() {
         return {
+            store,
             check: true,
             apiURL: 'https://www.breakingbadapi.com/api/characters',
             list: []
@@ -39,7 +42,8 @@ export default {
                     console.log(res.data);
                     this.list = [...res.data];
                     console.log(this.list);
-                    this.check = false
+                    setTimeout(() => this.check = false, 2000);
+                    this.store.count = this.list.length
                 }
             )
         }
@@ -51,11 +55,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container .bg-loading {
+    background: #262626;
+    min-height: 500px;
+
+}
+
 .mycard {
     padding: 1rem;
     background-color: #2e3a46;
     color: whitesmoke;
-    height: 400px;
+    height: 100%;
 
     h4 {
         text-align: center;
@@ -102,10 +112,11 @@ img {
     border-top: 3px solid #fff000;
     border-right: 3px solid #fff000;
     border-radius: 50%;
-    animation: animateC 0.5s linear infinite;
+    animation: animateC 2s linear infinite;
 }
 
 span {
+
     display: block;
     position: absolute;
     top: calc(50% - 2px);
@@ -114,7 +125,7 @@ span {
     height: 4px;
     background: transparent;
     transform-origin: left;
-    animation: animate 0.5s linear infinite;
+    animation: animate 2s linear infinite;
 }
 
 span:before {
