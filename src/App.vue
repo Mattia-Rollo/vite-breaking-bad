@@ -1,12 +1,22 @@
 <template>
-  <div class="container bg-danger">
-    AppVue
-  </div>
+  <HeaderComponent />
+  <main>
+    <CharactersListVue />
+    <CounterCharComponent />
+  </main>
 </template>
 
 <script>
-export default {
+import HeaderComponent from './components/HeaderComponent.vue';
+import CharactersListVue from './components/CharactersListComponent.vue';
+import CounterCharComponent from './components/CounterCharComponent.vue';
 
+export default {
+  components: {
+    HeaderComponent,
+    CharactersListVue,
+    CounterCharComponent
+  }
 }
 </script>
 
