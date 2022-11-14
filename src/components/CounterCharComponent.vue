@@ -1,6 +1,6 @@
 <template>
-    <div>
-
+    <div class="container">
+        <strong>Found {{ counter }} characters</strong>
     </div>
 </template>
 
@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.container {
+    background-color: #212529;
+}
 </style>
