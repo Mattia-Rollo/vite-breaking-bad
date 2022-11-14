@@ -13,8 +13,9 @@ $fa-font-path: '../webfonts';
  @import 'bootstrap/scss/bootstrap';
 
  body {
-    font-family: $main-font;
+    // font-family: $main-font;
     color: $text-color;
+  
     background-image: linear-gradient(to left,
             transparent 0px,
             transparent 20px,

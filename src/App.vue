@@ -1,6 +1,6 @@
 <template>
-  <div>
-
+  <div class="container bg-danger">
+    AppVue
   </div>
 </template>
 
