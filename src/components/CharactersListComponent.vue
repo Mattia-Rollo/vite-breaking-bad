@@ -6,8 +6,7 @@
 
                     <img :src="item.img" alt="">
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+                        <h4>{{ item.name }}</h4>
                     </div>
                 </div>
             </div>
@@ -48,6 +47,12 @@ export default {
 .mycard {
     padding: 1rem;
     background-color: #2e3a46;
+    color: whitesmoke;
+    height: 400px;
+
+    h4 {
+        text-align: center;
+    }
 }
 
 img {
