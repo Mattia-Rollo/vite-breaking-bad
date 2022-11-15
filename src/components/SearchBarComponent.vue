@@ -2,12 +2,14 @@
     <div class="container py-2">
         <form class="row row-cols-lg-auto g-3 align-items-center" @submit.prevent="searchCharacters">
             <div class="col-12">
-                <input type="text" class="form-control" id="searchName" placeholder="searchName">
+                <input type="text" class="form-control" id="searchName" placeholder="searchName"
+                    v-model="store.search.name">
             </div>
             <div class="col-12">
                 <label class="visually-hidden" for="category">category</label>
                 <select class="form-select" id="category" v-model="store.search.category">
-                    <option selected value="Breaking Bad">Breaking bad</option>
+                    <option selected value="">Chooise...</option>
+                    <option value="Breaking Bad">Breaking bad</option>
                     <option value="Better Call Saul">Better Call Saul</option>
                 </select>
             </div>
