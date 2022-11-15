@@ -18,7 +18,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
             <div class="col-12">
-                <button type="submit" @reset="resetSearch" class="btn btn-primary">Reset</button>
+                <button type="submit" @click="resetSearch()" class="btn btn-primary">Reset</button>
             </div>
         </form>
     </div>
