@@ -9,7 +9,7 @@
             <div v-if="!store.loading" class="row row-cols-3 row-cols-md-4 row-cols-lg-5 g-3 py-2">
                 <div v-for="(item, index) in store.characterList" class="col" :key="index">
                     <div class="mycard">
-                        <img :src="item.image" alt="" class="pb-3 g-3">
+                        <img :src="item.img" alt="" class="pb-3 g-3">
                         <div class="card-body">
                             <h4>{{ item.name }}</h4>
                             <!-- <div class="text-center position-relative ">{{ item.nickname }}</div>

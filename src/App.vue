@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       store,
-      endPoint: 'character'
+      endPoint: 'characters'
     }
   },
   methods: {
@@ -64,9 +64,9 @@ export default {
       const apiurl = store.apiURL + this.endPoint;
       axios.get(apiurl, options).then(
         (res) => {
-          store.characterList = res.data.results;
+          store.characterList = res.data;
           console.log(store.characterList);
-          store.count = store.characterList.length
+          store.count = store.characterList.length;
           store.loading = false;
         }
       ).catch((error) => {

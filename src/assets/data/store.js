@@ -2,7 +2,7 @@ import { reactive } from "vue";
 
 export const store = reactive({
   count: 0,
-  apiURL: "https://rickandmortyapi.com/api/",
+  apiURL: "https://www.breakingbadapi.com/api/",
   characterList: [],
   loading: false,
   search: {

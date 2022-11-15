@@ -7,7 +7,7 @@
             <div class="col-12">
                 <label class="visually-hidden" for="category">category</label>
                 <select class="form-select" id="category" v-model="store.search.category">
-                    <option selected value="Breaking Bad">Breacking bad</option>
+                    <option selected value="Breaking Bad">Breaking bad</option>
                     <option value="Better Call Saul">Better Call Saul</option>
                 </select>
             </div>
