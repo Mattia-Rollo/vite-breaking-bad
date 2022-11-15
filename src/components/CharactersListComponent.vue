@@ -6,19 +6,19 @@
             </div>
         </div>
         <Transition name="slide-fade">
-        <div v-if="!loading" class="row row-cols-3 row-cols-md-4 row-cols-lg-5 g-4 py-2">
-            <div v-for="(item, index) in list" class="col" :key="index">
-                <div class="mycard">
+            <div v-if="!loading" class="row row-cols-3 row-cols-md-4 row-cols-lg-5 g-3 py-2">
+                <div v-for="(item, index) in list" class="col" :key="index">
+                    <div class="mycard">
 
-                    <img :src="item.img" alt="" class="pb-3">
-                    <div class="card-body">
-                        <h4>{{ item.name }}</h4>
-                        <div class="text-center position-relative ">{{ item.nickname }}</div>
-                        <div class="text-center position-relative ">{{ item.status }}</div>
+                        <img :src="item.img" alt="" class="pb-3 g-3">
+                        <div class="card-body">
+                            <h4>{{ item.name }}</h4>
+                            <div class="text-center position-relative ">{{ item.nickname }}</div>
+                            <div class="text-center position-relative ">{{ item.status }}</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </Transition>
     </div>
 </template>
@@ -58,38 +58,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 @use '../assets/style/partials/variables' as *;
 
 .container .bg-loading {
     background: #262626;
     min-height: 500px;
     position: relative;
-    
+
 }
 
 .mycard {
-    padding: 1rem;
+    // padding: 1rem;
     background-color: #2e3a46;
     color: whitesmoke;
     height: 100%;
-    border-radius: 10px;
+    // border-radius: 10px;
 
     h4 {
         text-align: center;
     }
-    h4 ~ div {
+
+    h4~div {
         color: $text-color;
     }
 }
 
 img {
     width: 100%;
-    height: 40vh;
+    height: 15rem;
     object-fit: cover;
     object-position: top;
     border-radius: 5px;
-    
+
 }
 
 
@@ -175,16 +175,16 @@ span:before {
 }
 
 .slide-fade-enter-active {
-  transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,
 .slide-fade-leave-to {
-  transform: translateY(-100px);
-  opacity: 0;
+    transform: translateY(-100px);
+    opacity: 0;
 }
 </style>
