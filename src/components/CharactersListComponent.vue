@@ -1,20 +1,19 @@
 <template>
     <div class="container">
-        <div class="bg-loading" v-if="loading">
+        <div class="bg-loading" v-if="store.loading">
             <div class="ring">Loading
                 <span></span>
             </div>
         </div>
         <Transition name="slide-fade">
-            <div v-if="!loading" class="row row-cols-3 row-cols-md-4 row-cols-lg-5 g-3 py-2">
-                <div v-for="(item, index) in list" class="col" :key="index">
+            <div v-if="!store.loading" class="row row-cols-3 row-cols-md-4 row-cols-lg-5 g-3 py-2">
+                <div v-for="(item, index) in store.characterList" class="col" :key="index">
                     <div class="mycard">
-
-                        <img :src="item.img" alt="" class="pb-3 g-3">
+                        <img :src="item.image" alt="" class="pb-3 g-3">
                         <div class="card-body">
                             <h4>{{ item.name }}</h4>
-                            <div class="text-center position-relative ">{{ item.nickname }}</div>
-                            <div class="text-center position-relative ">{{ item.status }}</div>
+                            <!-- <div class="text-center position-relative ">{{ item.nickname }}</div>
+                            <div class="text-center position-relative ">{{ item.status }}</div> -->
                         </div>
                     </div>
                 </div>
@@ -32,33 +31,34 @@ export default {
     name: 'CharactersList',
     data() {
         return {
+
             store,
-            loading: true,
-            apiURL: 'https://www.breakingbadapi.com/api/characters',
-            list: [],
-            options: {
-                params: {
-                    category: 'Better Call Saul'
-                }
-            }
+            // loading: true,
+            // apiURL: 'https://www.breakingbadapi.com/api/characters',
+            // list: [],
+            // options: {
+            //     params: {
+            //         category: 'Better Call Saul'
+            //     }
+            // }
         }
     },
-    methods: {
-        getImage() {
-            axios.get(this.apiURL, this.options).then(
-                (res) => {
-                    console.log(res.data);
-                    this.list = [...res.data];
-                    console.log(this.list);
-                    setTimeout(() => this.loading = false, 3000);
-                    this.store.count = this.list.length;
-                }
-            )
-        }
-    },
-    created() {
-        this.getImage();
-    }
+    // methods: {
+    //     getImage() {
+    //         axios.get(this.apiURL, this.options).then(
+    //             (res) => {
+    //                 console.log(res.data);
+    //                 this.list = [...res.data];
+    //                 console.log(this.list);
+    //                 setTimeout(() => this.loading = false, 3000);
+    //                 this.store.count = this.list.length;
+    //             }
+    //         )
+    //     }
+    // },
+    // created() {
+    //     this.getImage();
+    // }
 }
 </script>
 
@@ -93,7 +93,6 @@ img {
     height: 15rem;
     object-fit: cover;
     object-position: top;
-    border-radius: 5px;
 
 }
 
