@@ -35,12 +35,17 @@ export default {
             store,
             loading: true,
             apiURL: 'https://www.breakingbadapi.com/api/characters',
-            list: []
+            list: [],
+            options: {
+                params: {
+                    category: 'Better Call Saul'
+                }
+            }
         }
     },
     methods: {
         getImage() {
-            axios.get(this.apiURL).then(
+            axios.get(this.apiURL, this.options).then(
                 (res) => {
                     console.log(res.data);
                     this.list = [...res.data];

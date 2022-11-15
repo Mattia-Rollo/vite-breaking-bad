@@ -1,6 +1,7 @@
 <template>
   <HeaderComponent />
   <main>
+    <SearchBarComponent />
     <CounterCharComponent />
     <CharactersListVue />
   </main>
@@ -10,12 +11,14 @@
 import HeaderComponent from './components/HeaderComponent.vue';
 import CharactersListVue from './components/CharactersListComponent.vue';
 import CounterCharComponent from './components/CounterCharComponent.vue';
+import SearchBarComponent from './components/SearchBarComponent.vue';
 
 export default {
   components: {
     HeaderComponent,
     CharactersListVue,
-    CounterCharComponent
+    CounterCharComponent,
+    SearchBarComponent
   }
 }
 </script>

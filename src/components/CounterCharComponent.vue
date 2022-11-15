@@ -1,4 +1,5 @@
 <template>
+
     <div class="container py-3">
         <strong>Found {{ store.count }} characters</strong>
     </div>
