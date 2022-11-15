@@ -1,11 +1,12 @@
 <template>
     <div class="container">
-        <div class="bg-loading" v-if="check">
+        <div class="bg-loading" v-if="loading">
             <div class="ring">Loading
                 <span></span>
             </div>
         </div>
-        <div v-if="!check" class="row row-cols-3 row-cols-lg-5 g-4 py-2">
+        <Transition name="slide-fade">
+        <div v-if="!loading" class="row row-cols-3 row-cols-md-4 row-cols-lg-5 g-4 py-2">
             <div v-for="(item, index) in list" class="col" :key="index">
                 <div class="mycard">
 
@@ -13,10 +14,12 @@
                     <div class="card-body">
                         <h4>{{ item.name }}</h4>
                         <div class="text-center position-relative ">{{ item.nickname }}</div>
+                        <div class="text-center position-relative ">{{ item.status }}</div>
                     </div>
                 </div>
             </div>
         </div>
+        </Transition>
     </div>
 </template>
 
@@ -30,7 +33,7 @@ export default {
     data() {
         return {
             store,
-            check: true,
+            loading: true,
             apiURL: 'https://www.breakingbadapi.com/api/characters',
             list: []
         }
@@ -42,8 +45,8 @@ export default {
                     console.log(res.data);
                     this.list = [...res.data];
                     console.log(this.list);
-                    setTimeout(() => this.check = false, 2000);
-                    this.store.count = this.list.length
+                    setTimeout(() => this.loading = false, 3000);
+                    this.store.count = this.list.length;
                 }
             )
         }
@@ -55,10 +58,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@use '../assets/style/partials/variables' as *;
+
 .container .bg-loading {
     background: #262626;
     min-height: 500px;
-
+    position: relative;
+    
 }
 
 .mycard {
@@ -66,16 +73,23 @@ export default {
     background-color: #2e3a46;
     color: whitesmoke;
     height: 100%;
+    border-radius: 10px;
 
     h4 {
         text-align: center;
+    }
+    h4 ~ div {
+        color: $text-color;
     }
 }
 
 img {
     width: 100%;
-    height: 300px;
+    height: 40vh;
     object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+    
 }
 
 
@@ -102,7 +116,7 @@ img {
 }
 
 .ring:before {
-    content: '';
+    // content: '';
     position: absolute;
     top: -3px;
     left: -3px;
@@ -158,5 +172,19 @@ span:before {
     100% {
         transform: rotate(405deg);
     }
+}
+
+.slide-fade-enter-active {
+  transition: all 0.2s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-100px);
+  opacity: 0;
 }
 </style>

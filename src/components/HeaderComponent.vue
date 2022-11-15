@@ -18,5 +18,6 @@ export default {
 <style lang="scss" scoped>
 select {
     width: 300px;
+    
 }
 </style>
