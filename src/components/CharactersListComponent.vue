@@ -7,7 +7,7 @@
         </div>
         <Transition name="slide-fade">
             <div v-if="!store.loading" class="row row-cols-3 row-cols-md-4 row-cols-lg-5 g-3 py-2">
-                <div v-for="(item, index) in store.characterList" class="col" :key="index">
+                <div v-for="(item, index) in filteredList" class="col" :key="index">
                     <div class="mycard">
                         <img :src="item.img" alt="" class="pb-3 g-3">
                         <div class="card-body">
@@ -43,6 +43,15 @@ export default {
             // }
         }
     },
+    computed: {
+        filteredList() {
+
+            return store.name
+                ? store.characterList.filter((c) => c.name.includes(store.name))
+                : store.characterList;
+
+        }
+    }
     // methods: {
     //     getImage() {
     //         axios.get(this.apiURL, this.options).then(

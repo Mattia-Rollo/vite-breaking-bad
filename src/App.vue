@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { cloneDeep } from 'lodash';
 import axios from 'axios';
 import { store } from './assets/data/store';
 import HeaderComponent from './components/HeaderComponent.vue';
@@ -65,7 +66,7 @@ export default {
       axios.get(apiurl, options).then(
         (res) => {
           store.characterList = res.data;
-          console.log(store.characterList);
+          console.log(res.data);
           store.count = store.characterList.length;
           store.loading = false;
         }
