@@ -45,11 +45,9 @@ export default {
     },
     computed: {
         filteredList() {
-
             return store.name
-                ? store.characterList.filter((c) => c.name.includes(store.name))
+                ? store.characterList.filter((c) => c.name.toUpperCase().includes(store.name.toUpperCase()))
                 : store.characterList;
-
         }
     }
     // methods: {

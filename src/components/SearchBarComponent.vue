@@ -31,7 +31,6 @@ export default {
     data() {
         return {
             store,
-            search: '',
             statusOptions: [
                 'Breacking bad',
                 'Better call Saul'

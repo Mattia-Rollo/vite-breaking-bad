@@ -66,7 +66,7 @@ export default {
       axios.get(apiurl, options).then(
         (res) => {
           store.characterList = res.data;
-          console.log(res.data);
+          // console.log(res.data);
           store.count = store.characterList.length;
           store.loading = false;
         }
